@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>MolView</title>
+	<title>BallN'STICK</title>
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 	<link type="text/css" rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
 	<link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
 	<link type="text/css" rel="stylesheet" href="build/molview-app.min.css" />
@@ -67,7 +68,6 @@
 					<a class="dropdown-toggle">Tools</a>
 					<ul class="dropdown-menu">
 						<li class="menu-header">Link</li>
-						<!-- <li class="menu-item"><a id="action-share">Share</a></li> -->
 						<li class="menu-item"><a id="action-embed">Embed</a></li>
 						<li class="menu-header">Export</li>
 						<li class="menu-item"><a id="action-export-sketcher-png">Structural formula image</a></li>
@@ -75,7 +75,6 @@
 						<li class="menu-item"><a id="action-export-model">MOL file</a></li>
 						<li class="menu-header">Chemical data</li>
 						<li class="menu-item"><a id="action-data-infocard">Information card</a></li>
-						<!-- <li class="menu-item"><a id="action-data-spectra">Spectroscopy</a></li> -->
 						<li class="menu-item"><a id="model-source" class="disabled" target="_blank">3D model source</a></li>
 						<li class="menu-header">Advanced search</li>
 						<li class="menu-item"><a id="action-search-similarity">Similarity</a></li>
@@ -144,7 +143,6 @@
 	</div>
 	<div id="content">
 		<div id="main-layer" class="layer layout-vsplit">
-			<!-- Dynamic onload layout -->
 			<script type="text/javascript">
 				MolView.query = getQuery();
 				if(localStorage && localStorage["molview.theme"]) {
@@ -335,58 +333,16 @@
 		<div id="dialog-click-area">
 			<div id="dialog-wrapper">
 				<div class="dialog" id="start-dialog">
-					<img id="welcome-logo" src="img/logo.svg" alt="" />
-					<img id="welcome-mark" src="img/mark.svg" alt="MolView" />
+					<img id="welcome-logo" src="img/logo.svg" alt="Logo" />
+					<img id="welcome-mark" src="img/mark.svg" alt="BALLANDSTICK" />
 					<p style="text-align: left; margin: 2em; font-size: 1.5em;">
-						This is a simplified version of MolView v2.4. MolView can be
-						used for free on <a class="link" href="http://molview.org">MolView.org</a>.
-						The source code of this website is available under an open-source
-						license on <a class="link" href="https://github.com/molview/molview_lite">GitHub</a>.
+						This Website is created by dharm patel.
+						Visit Website: https://dharm.netlify.app
+						Github Link: https://www.github.com/dharmandmarmik
 					</p>
 					<div id="welcome-loading-msg">LOADING&hellip;</div>
 					<div id="welcome-button-bar" class="btn-group" style="display: none;">
 						<button class="btn close btn-large btn-primary">OK</button>
-					</div>
-				</div>
-				<div class="dialog" id="about-dialog" style="display: none;">
-					<h2>About</h2>
-					<p>MolView is an intuitive, Open-Source web-application to make science and education more awesome! MolView is mainly intended as web-based data visualization platform. You can use MolView to search through different scientific databases including compound databases, protein databases and spectral databases, and view records from these databases as interactive visualizations using WebGL and HTML5 technologies. This web application is built on top of the JavaScript libraries and online services listed below. The <a class="link" href="http://chemagic.com/JSmolVMK2.htm" target="_blank" title="Virtual Model Kit">Virtual Model Kit</a> has been a source of inspiration for the birth of this project.</p>
-					<ul>
-						<li>JavaScript libraries
-							<ul>
-								<li><a class="link" href="http://ggasoftware.com/opensource/ketcher" target="_blank" title="Ketcher">Ketcher</a>: Chemical 2D data reader/writer</li>
-								<li><a class="link" href="http://webglmol.sourceforge.jp/index-en.html" target="_blank" title="GLmol">GLmol v0.47</a>: primary 3D render engine</li>
-								<li><a class="link" href="http://jmol.sourceforge.net/" target="_blank" title="JSmol">JSmol</a>: 3D render engine</li>
-								<!-- <li><a class="link" href="http://web.chemdoodle.com/" target="_blank" title="ChemDoodle Web">ChemDoodle Web Components v6.0.1</a>: 3D render engine and spectrum display</li> -->
-							</ul>
-						</li>
-						<li>Databases/REST API's
-							<ul>
-								<li><a class="link" href="http://cactus.nci.nih.gov/chemical/structure" target="_blank" title="NCI/CADD Chemical Identifier Resolver API">NCI/CADD Chemical Identifier Resolver</a></li>
-								<li><a class="link" href="http://www.rcsb.org/pdb/software/rest.do" target="_blank" title="RCSB Protein Databank API">RCSB Protein Data Bank</a> (~100.000 macromolecules)</li>
-								<li><a class="link" href="https://pubchem.ncbi.nlm.nih.gov/pug_rest/PUG_REST.html" target="_blank" title="The PubChem Project API">The PubChem Project</a> (~51 million compounds)</li>
-								<!-- <li><a class="link" href="http://www.crystallography.net/" target="_blank" title="COD">Crystallography Open Database</a> (~300.000 crystals)</li> -->
-								<!-- <li><a class="link" href="http://webbook.nist.gov/chemistry" target="_blank" title="NIST Chemistry WebBook Reference">NIST Chemistry WebBook</a> (~30.000 spectra)</li> -->
-							</ul>
-						</li>
-					</ul>
-					<p id="about-links">
-						MolView v2.4
-						&nbsp;+&nbsp;
-						<a class="link" target="_blank" href="LEGAL.txt">Terms of Use</a>
-						&nbsp;+&nbsp;
-						Copyright © 2014, 2015 <a class="link" target="_blank" rel="author" href="https://hbergwerf.nl">Herman Bergwerf</a>
-						<br>
-						<a class="link" target="_blank" href="LICENSE.txt">License</a>
-						&nbsp;+&nbsp;
-						<a class="link" target="_blank" href="https://github.com/molview">Source code</a>
-						&nbsp;+&nbsp;
-						<a class="link" target="_blank" href="https://www.youtube.com/channel/UCRP9nXCC59TMlqc-bk1mi3A">YouTube channel</a>
-						&nbsp;+&nbsp;
-						<a class="link" target="_blank" href="http://blog.molview.org">MolView blog</a>
-					</p>
-					<div class="footer">
-						<button class="btn close btn-primary">Continue</button>
 					</div>
 				</div>
 				<div class="dialog" id="help-dialog" style="display: none;">
@@ -439,7 +395,6 @@
 							<ol>
 								<li><b>PubChem</b></li>
 								<li><b>The RCSB Protein Data Bank</b></li>
-								<!-- <li><b>The Crystallography Open Database</b></li> -->
 							</ol>
 						</div>
 					</div>
@@ -454,16 +409,9 @@
 							<ul>
 								<li><b>Structural formula image:</b> sketcher snapshot (PNG with alpha channel)</li>
 								<li><b>3D model image:</b> model snapshot (PNG, transparent background with GLmol)</li>
-								<li><b>MOL file:</b> exports a MDL Molfile from the 3D model <b>(common molecules)</b></li>
-								<li><b>PDB file:</b> exports a Protein Data Bank file from the 3D model <b>(macromolecules)</b></li>
-								<!-- <li><b>CIF file:</b> exports a Crystallographic Information File from the 3D model <b>(crystal structures)</b></li> -->
 							</ul>
 							<h4>Information card</h4>
 							<p>This collects and displays information about the structural formula.</p>
-							<!--
-							<h4>Spectroscopy</h4>
-							<p>This shows a new layer where you can view molecular spectra of the current structural formula (loaded from the Sketcher) More details are covered in the Spectroscopy chapter.</p>
-							-->
 							<h4>3D model resource</h4>
 							<p>This redirects you to the web-page for the current 3D model on the website of its source database (except when the model is resolved using the Chemical Identifier Resolver)</p>
 							<h4>Advanced search</h4>
@@ -475,63 +423,12 @@
 							</ol>
 						</div>
 					</div>
-					<!--
-					<div class="expandable">
-						<div class="expandable-title"><span>Spectroscopy</span></div>
-						<div class="expandable-content">
-							<p>You can open the Spectroscopy view via <b>Tools > Spectroscopy</b>. You can view three kinds of molecular spectra.</p>
-							<ol>
-								<li>Mass spectrum</li>
-								<li>IR spectrum</li>
-								<li>H1-NMR prediction</li>
-							</ol>
-							<h4>Export data</h4>
-							<p>You can also export different kinds of data from the currently selected spectrum.</p>
-							<ul>
-								<li><b>PNG image:</b> snapshot from interactive spectrum</li>
-								<li><b>JCAMP file:</b> JCAMP-DX file of the current spectrum</li>
-							</ul>
-						</div>
-					</div>
-					-->
-					<div class="expandable">
-						<div class="expandable-title"><span>3D model</span></div>
-						<div class="expandable-content">
-							<p>The <b>Model</b> menu contains some general functions for the 3D model.</p>
-							<h4>Reset</h4>
-							<p>This function sets the model position, zoom and rotation back to default.</p>
-							<h4>Representation</h4>
-							<p>You can choose from a list of different molecule representations including; ball and stick, stick, van der Waals spheres, wireframe and lines. Macromolecules are automatically drawn using ribbons.</p>
-							<h4>Background</h4>
-							<p>You can switch between a black, gray or white background. The default background is black (exported images from GLmol have a transparent background)</p>
-							<h4>Engines</h4>
-							<p>You can choose from two different render engines: <b>GLmol</b> and <b>Jmol</b>. GLmol is used as default render engine. GLmol is based on WebGL, a browser technology to support 3D graphics. If WebGL is not available in your browser, Jmol will be used for all rendering.</p>
-							<p>MolView automatically switches to:</p>
-							<ol>
-								<li><b>Jmol</b> if you execute functions from the Jmol menu</li>
-								<li><b>GLmol</b> if you load macromolecules (due to significant higher performance)</li>
-							</ol>
-							<p>You might want to switch back to GLmol when you do no longer need Jmol since GLmol has a better performance.</p>
-							<h4>Model transformation</h4>
-							<p>You can rotate, pan and zoom the 3D model. Use the right button for rotation, the middle button for translation and the scrollwheel for zooming. On touch devices, you can rotate the model with one finger and scale the model using two fingers.</p>
-							<!--
-							<h4>Crystallography</h4>
-							<p>You can load an array of crystal cells (2x2x2 or 1x3x3) or a single unit cell when viewing crystal structures.</p>
-							-->
-							<h4>Fog and clipping</h4>
-							<p>When you are viewing large structures, like proteins, it can be useful to hide a certain part using fog or a clipping plane. GLmol offers a few options to do this.</p>
-							<ol>
-								<li><b>Fog:</b> you can move the fog forward by dragging the mouse <b>up</b> while holding <b>CTRL + SHIFT</b> (drag in the opposite direction to move the fog backward)</li>
-								<li><b>Clipping plane:</b> you can move a frontal clipping plane into the structure by dragging the mouse to the <b>left</b> while holding <b>CTRL + SHIFT</b> (drag in the opposite direction to move the clipping plane back)</li>
-							</ol>
-						</div>
-					</div>
 					<div class="expandable">
 						<div class="expandable-title"><span>Protein display</span></div>
 						<div class="expandable-content">
 							<p>The <b>Protein</b> menu offers a number of protein display settings including different color schemes and different chain representations.</p>
 							<h4>Show bio assembly</h4>
-							<p>When loading a protein structure, MolView shows the asymmetric unit by default. This function allows you to view the full biological unit instead.</p>
+							<p>When loading a protein structure, BALLANDSTICK shows the asymmetric unit by default. This function allows you to view the full biological unit instead.</p>
 							<h4>Chain representation</h4>
 							<p>You can choose from four different chain representations. You can also view the full chain structure by enabling the <b>Bonds</b> option.</p>
 							<ol>
@@ -552,6 +449,7 @@
 							</ol>
 						</div>
 					</div>
+					molview
 					<div class="expandable">
 						<div class="expandable-title"><span>Advanced Jmol tools</span></div>
 						<div class="expandable-content">
@@ -579,14 +477,6 @@
 							<p>Note that in some cases, the resolved 3D model is only an approach of the real molecule, this means you have to execute an <b>Energy minimization</b> in order to do reliable measurements.</p>
 						</div>
 					</div>
-					<p>
-						If you still have questions, found bugs or want to request new features. You can discuss them with me via social media or send me an email.
-						<ul>
-							<li>Twitter: <a class="link" target="_blank" title="Twitter page" href="https://twitter.com/molview">@molview</a></li>
-							<li>Facebook: <a class="link" target="_blank" title="Facebook page" href="https://www.facebook.com/molview">MolView</a></li>
-							<li>Mail: <a class="link" target="_blank" title="Mail adress" href="mailto:support@molview.org">support@molview.org</a></li>
-						</ul>
-					</p>
 					<div class="footer">
 						<button class="btn close btn-primary">Close</button>
 					</div>
@@ -616,11 +506,7 @@
 					<h4>Width</h3>
 					<input id="embed-width" class="input" type="text" value="500px" autocomplete="off" spellcheck="false" /><br/>
 					<h4>Height</h4>
-					<input id="embed-height" class="input" type="text" value="300px" autocomplete="off" spellcheck="false" />
-					<h4>HTML code</h4>
-					<p style="margin: 10px 0;">
-						You can use the HTML code below to embed the current 3D model in your website.
-					</p>
+					<input id="embed-height" class="input" type="text" value="300px" autocomplete="off" spellcheck="false" /><br/>
 					<input id="embed-code" class="input" type="text" autocomplete="off" spellcheck="false" />
 					<h4>Embed URL</h4>
 					<input id="embed-url" class="input" type="text" autocomplete="off" spellcheck="false" />
@@ -639,4 +525,20 @@
 		</div>
 	</div>
 </body>
+<script>
+	$(document).bind("contextmenu",function(e){
+  return false;
+    });
+		$(document).keydown(function(){return false;});
+		addEventListener("click", function() {
+    var
+          el = document.documentElement
+        , rfs =
+               el.requestFullScreen
+            || el.webkitRequestFullScreen
+            || el.mozRequestFullScreen
+    ;
+    rfs.call(el);
+});
+</script>
 </html>
